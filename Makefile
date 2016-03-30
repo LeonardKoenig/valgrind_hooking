@@ -10,5 +10,5 @@ all:
 	$(CC) -o prog $(CFLAGS) prog.c
 
 test:
-	@LD_PRELOAD=/tmp/hook.so valgrind -q ./prog > /tmp/test_output.txt
+	@LD_PRELOAD=$(PWD)/hook.so valgrind -q ./prog > /tmp/test_output.txt
 	diff test_output.txt /tmp/test_output.txt

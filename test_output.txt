@@ -1,0 +1,3 @@
+WRAPPER: foo(5, 4);
+WRAPPER: return 5;
+5 + 4 = 9

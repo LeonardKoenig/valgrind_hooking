@@ -1,17 +1,14 @@
 #include <stdio.h>
+#include "names.h"
 
-long foo(long x, long y)
+void ORIG_GAME_UPDATE(void)
 {
-	return x + y;
+	printf("it's me, the original" ORIG_GAME_UPDATE_STR "\n");
 }
 
 int main()
 {
-	long x = 5;
-	long y = 4;
-
-	long res = foo(x, y);
-	printf("%ld + %ld = %ld\n", x, y, res);
+	ORIG_GAME_UPDATE();
 
 	return 0;
 }

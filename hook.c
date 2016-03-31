@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <valgrind.h>
+#include "names.h"
 
-long I_WRAP_SONAME_FNNAME_ZU(NONE,foo) (long x, long y)
+
+void I_WRAP_SONAME_FNNAME_ZU(NONE, ORIG_GAME_UPDATE) (void)
 {
-
 	OrigFn fn;
 	VALGRIND_GET_ORIG_FN(fn);
 
-	printf("WRAPPER: foo(%ld, %ld);\n", x, y);
+	printf("WRAPPER: " ORIG_GAME_UPDATE_STR"(void);\n");
 
-	long result;
-	CALL_FN_W_WW(result, fn, x,y);
-	printf("WRAPPER: return %ld;\n", result);
+	CALL_FN_v_v(fn);
+	printf("WRAPPER: return;\n");
 
-	return result;
+	return;
 }
